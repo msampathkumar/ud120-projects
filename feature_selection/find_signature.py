@@ -39,5 +39,16 @@ labels_train   = labels_train[:150]
 
 ### your code goes here
 
+from sklearn.tree import DecisionTreeClassifier as DTC
 
+clf = DTC()
+clf.fit(features_train, labels_train)
+print 'Decision Tree Classifier Score ', clf.score(features_test, labels_test)
 
+print '==== overfit issued stuff ==='
+sam = vectorizer.get_feature_names()
+for i, each in enumerate(clf.feature_importances_):
+    if each > 0.2:
+        print i, sam[i], each
+        
+print '===' * 5

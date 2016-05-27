@@ -32,9 +32,19 @@ plt.show()
 ### visualization code (prettyPicture) to show you the decision boundary
 
 
+from sklearn.ensemble import AdaBoostClassifier, GradientBoostingClassifier
+
+## ACC :: 0.928
+#clf = AdaBoostClassifier(learning_rate=0.41, n_estimators= 30) 
+
+clf = GradientBoostingClassifier(max_depth=6, n_estimators=100)
+
+clf = clf.fit(features_train, labels_train)
 
 
+from sklearn.metrics import accuracy_score
 
+print 'score : {}'.format( accuracy_score( clf.predict(features_test), labels_test))
 
 
 

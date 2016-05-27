@@ -28,4 +28,18 @@ labels, features = targetFeatureSplit(data)
 
 ### your code goes here 
 
+from sklearn.cross_validation import train_test_split
+
+from sklearn.tree import DecisionTreeClassifier
+
+
+features_train, features_test, labels_train, labels_test = \
+     train_test_split(features, labels, train_size=0.70, random_state=42)
+
+
+clf = DecisionTreeClassifier()
+
+clf.fit(features_train, labels_train)
+
+print 'Score : ', clf.score(features_test, labels_test)
 
